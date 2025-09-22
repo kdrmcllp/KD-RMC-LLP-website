@@ -3,11 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Building2, Users, Award, Target } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function BuconSection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -118,7 +119,6 @@ export default function BuconSection() {
       `}</style>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Floating background elements */}
         <div className="absolute top-20 right-20 w-32 h-32 bg-blue-100 rounded-full blur-xl opacity-30"></div>
         <div className="absolute bottom-20 left-20 w-24 h-24 bg-blue-200 rounded-full blur-lg opacity-40"></div>
 
@@ -130,12 +130,6 @@ export default function BuconSection() {
             }`}
           >
             <div className="space-y-4">
-              {/* <div
-                className="inline-block px-3 sm:px-4 py-2 rounded-full text-white font-semibold text-xs sm:text-sm gsap-animate opacity-0 transform translate-y-4"
-                style={{ backgroundColor: "#1b2c50" }}
-              >
-                SISTER COMPANY
-              </div> */}
               <h2
                 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-balance gsap-animate opacity-0 transform translate-y-4"
                 style={{ color: "#1b2c50" }}
@@ -152,7 +146,7 @@ export default function BuconSection() {
               <p className="text-base sm:text-lg gsap-animate opacity-0 transform translate-y-4">
                 Bucon Readymix LLP is an independent ready mixed concrete
                 company in India. The company was established in 2021 with
-                participation from Mr. Kailash Purohit and Mr. Sanjay Borawat.
+                participation from Mr. Kailash Purohit.
               </p>
 
               <p className="text-base sm:text-lg gsap-animate opacity-0 transform translate-y-4">
@@ -199,15 +193,14 @@ export default function BuconSection() {
             <div className="pt-6">
               <button
                 className="inline-flex items-center px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-                style={{
-                  backgroundColor: "#1b2c50",
-                }}
+                style={{ backgroundColor: "#1b2c50" }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = "#1a2847";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = "#1b2c50";
                 }}
+                onClick={() => router.push("/bucon")}
               >
                 Learn More About Bucon
               </button>

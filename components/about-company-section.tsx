@@ -115,27 +115,7 @@ export default function AboutCompanySection() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#1b2c50]/20 to-transparent" />
             </div>
 
-            {/* Floating card */}
-            <motion.div
-              variants={itemVariants}
-              className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-white p-4 sm:p-6 rounded-xl shadow-xl border border-gray-100 max-w-[200px] sm:max-w-none"
-            >
-              <div className="flex items-center space-x-3 sm:space-x-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#1b2c50] rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold text-sm sm:text-lg">
-                    KD
-                  </span>
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900 text-sm sm:text-base">
-                    Quality Assured
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-600">
-                    ISO Certified
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            
           </motion.div>
         </motion.div>
       </div>

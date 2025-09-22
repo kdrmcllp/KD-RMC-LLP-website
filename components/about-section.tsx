@@ -102,11 +102,11 @@ export default function AboutSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 KD RMC LLP is a Proprietorship firm. Hard Work of Mr. Kailash
-                Purohit has now taken this firm to the new height. K D
-                CORPORATION was established in Maharashtra in year 2017. It
-                started operating as a construction trading entity whereby its
-                initial activities included Aggregate and construction material
-                in the Mumbai Suburban Market.
+                Purohit has now taken this firm to the new height. KD RMC LLP
+                was established in Maharashtra in year 2020. It started
+                operating as a construction trading entity whereby its initial
+                activities included Aggregate and construction material in the
+                Mumbai Suburban Market.
               </motion.p>
 
               <motion.p

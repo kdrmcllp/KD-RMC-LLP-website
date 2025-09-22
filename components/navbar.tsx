@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-// import { Button } from "/components/ui/button";
 
 const navItems = [
   {
@@ -17,7 +16,6 @@ const navItems = [
       { name: "OUR MANAGEMENT", href: "/about-us#management" },
     ],
   },
-  { name: "Certificates", href: "#certificates" },
   { name: "Products", href: "#products" },
   { name: "Contact", href: "#contact" },
 ];
@@ -26,6 +24,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [pendingScroll, setPendingScroll] = useState<string | null>(null);
+
   const router = useRouter();
   const pathname = usePathname();
 
@@ -35,29 +35,78 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) element.scrollIntoView({ behavior: "smooth" });
+  // Custom smooth scroll with easing
+  const smoothScrollTo = useCallback((targetY: number, duration = 1000) => {
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    let startTime: number | null = null;
+
+    const easeInOutQuad = (t: number) =>
+      t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+    const animateScroll = (time: number) => {
+      if (!startTime) startTime = time;
+      const timeElapsed = time - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutQuad(progress);
+
+      window.scrollTo(0, startY + distance * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  }, []);
+
+  // Smooth scroll to section
+  const scrollToSection = useCallback(
+    (href: string) => {
+      const element = document.querySelector(href);
+      if (element) {
+        const targetY = element.getBoundingClientRect().top + window.scrollY;
+        smoothScrollTo(targetY, 1200);
+      }
+    },
+    [smoothScrollTo]
+  );
+
+  // Handle navigation clicks
+  const handleNavClick = (item: any) => {
+    if (item.dropdown) return;
+    setIsOpen(false);
+    setActiveDropdown(null);
+
+    if (pathname === "/") {
+      scrollToSection(item.href);
+    } else {
+      setPendingScroll(item.href);
+      router.push("/");
+    }
   };
+
+  // After route change to "/", scroll to target section
+  useEffect(() => {
+    if (pathname === "/" && pendingScroll) {
+      const target = pendingScroll;
+      setPendingScroll(null);
+      setTimeout(() => {
+        scrollToSection(target);
+      }, 400);
+    }
+  }, [pathname, pendingScroll, scrollToSection]);
 
   const scrollToHome = () => {
     if (pathname !== "/") {
       router.push("/");
     } else {
       const element = document.querySelector("#home");
-      if (element) element.scrollIntoView({ behavior: "smooth" });
+      if (element) {
+        const targetY = element.getBoundingClientRect().top + window.scrollY;
+        smoothScrollTo(targetY, 1200);
+      }
     }
-  };
-
-  const handleNavClick = (item: any) => {
-    if (item.dropdown) return; // dropdown toggle handled separately
-    if (item.name === "About" && pathname === "/") {
-      scrollToSection(item.href);
-    } else {
-      scrollToSection(item.href);
-    }
-    setIsOpen(false);
-    setActiveDropdown(null);
   };
 
   const getNavTextColor = () => {
@@ -84,17 +133,26 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div
-            className="flex-shrink-0 cursor-pointer h-full flex items-center"
+            className="flex-shrink-0 cursor-pointer flex items-center h-full py-2"
             onClick={scrollToHome}
           >
-            <Image
-              src="/images/logo.png"
-              alt="Logo"
-              width={160} // Base width for mobile/tablet
-              height={50} // Base height for mobile/tablet
-              className="h-16 w-auto object-contain transition-opacity duration-300 hover:opacity-80 lg:h-20 lg:w-auto" // Increased size for large screens
-              priority
-            />
+            <div className="h-full flex items-center">
+              <Image
+                src="/images/logo-1.png"
+                alt="Logo"
+                width={200}
+                height={128}
+                className="h-full w-auto object-contain transition-opacity duration-300 hover:opacity-80"
+                style={{ maxHeight: "100%" }}
+                priority
+              />
+            </div>
+            <span
+              className="ml-3 text-xl lg:text-2xl font-bold"
+              style={{ color: "#1b2c50" }}
+            >
+              KD RMC LLP
+            </span>
           </div>
 
           {/* Desktop Navigation */}
@@ -109,7 +167,7 @@ export default function Navbar() {
                       )
                     }
                     onMouseEnter={() => setActiveDropdown(item.name)}
-                    className="px-3 py-2 text-lg font-bold flex items-center gap-1 transition-colors duration-300" // Increased text size and made bold
+                    className="px-3 py-2 text-lg font-bold flex items-center gap-1 transition-colors duration-300"
                     style={{ color: "var(--nav-text-color)" }}
                   >
                     {item.name}
@@ -118,8 +176,11 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href={item.href}
-                    onClick={() => handleNavClick(item)}
-                    className="px-3 py-2 text-lg font-bold transition-colors duration-300 relative group" // Increased text size and made bold
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item);
+                    }}
+                    className="px-3 py-2 text-lg font-bold transition-colors duration-300 relative group"
                     style={{ color: "var(--nav-text-color)" }}
                   >
                     {item.name}
@@ -181,7 +242,7 @@ export default function Navbar() {
           }`}
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background/95 backdrop-blur-sm rounded-lg mt-2 transform transition-transform duration-500 ease-in-out">
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <div key={item.name}>
                 {item.dropdown ? (
                   <button
@@ -190,15 +251,18 @@ export default function Navbar() {
                         activeDropdown === item.name ? null : item.name
                       )
                     }
-                    className={`text-foreground hover:text-[#1b2c50] block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-all duration-300 hover:bg-[#1b2c50]/10`}
+                    className="text-foreground hover:text-[#1b2c50] block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-all duration-300 hover:bg-[#1b2c50]/10"
                   >
                     {item.name}
                   </button>
                 ) : (
                   <Link
                     href={item.href}
-                    onClick={() => handleNavClick(item)}
-                    className={`text-foreground hover:text-[#1b2c50] block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-all duration-300 hover:bg-[#1b2c50]/10`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item);
+                    }}
+                    className="text-foreground hover:text-[#1b2c50] block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-all duration-300 hover:bg-[#1b2c50]/10"
                   >
                     {item.name}
                   </Link>

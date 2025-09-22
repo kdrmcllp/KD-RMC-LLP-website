@@ -57,19 +57,12 @@ export default function ProductsSection() {
             isVisible ? "animate-fade-in-up" : "opacity-0"
           }`}
         >
-          <div className="inline-block px-4 py-2 bg-[#1b2c50]/10 rounded-full text-[#1b2c50] font-semibold text-sm mb-4">
-            OUR PRODUCTS
-          </div>
           <h2 className="text-5xl font-bold text-foreground mb-6 text-balance">
             <span className="text-[#1b2c50]">QUALITY CRUSHED</span>
             <br />
             AGGREGATES
           </h2>
           <div className="w-32 h-1 bg-[#1b2c50] rounded-full mx-auto mb-8"></div>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Particles produced by the VSI have rounded edges and a surface
-            texture closely resembling that of naturally formed aggregates.
-          </p>
         </div>
 
         {/* Image Section */}

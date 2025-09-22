@@ -5,6 +5,7 @@ import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { CheckCircle, Factory, Truck, Shield } from "lucide-react";
+import CertificatesSection from "../../components/certificates-section";
 
 export default function BuconPage() {
   const [isVisible, setIsVisible] = useState(false);
@@ -100,8 +101,7 @@ export default function BuconPage() {
                   <p className="text-lg">
                     Bucon Readymix LLP is an independent ready mixed concrete
                     company in India. The company was established in 2021 with
-                    participation from Mr. Kailash Purohit and Mr. Sanjay
-                    Borawat.
+                    participation from Mr. Kailash Purohit.
                   </p>
 
                   <p className="text-lg">
@@ -155,6 +155,7 @@ export default function BuconPage() {
             </div>
           </div>
         </section>
+        <CertificatesSection />
 
         {/* Services Section */}
         <section className="py-20 bg-background">

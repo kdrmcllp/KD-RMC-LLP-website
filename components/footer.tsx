@@ -1,36 +1,47 @@
-"use client"
+"use client";
 
-import { MapPin, Phone, Mail } from "lucide-react"
+import Image from "next/image"; 
+import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   const quickLinks = [
     { name: "About Us", href: "#about" },
     { name: "Our Products", href: "#products" },
     { name: "Certificates", href: "#certificates" },
     { name: "Partners", href: "#partners" },
-  ]
+  ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer
+      className="relative bg-primary text-primary-foreground bg-no-repeat bg-contain bg-bottom"
+      style={{ backgroundImage: "url('/images/construction-bg-footer.jpg')" }} // ensure the file name has no space
+    >
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-primary/90" /> 
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold">KD</h3>
-            <p className="text-primary-foreground/80 leading-relaxed text-sm sm:text-base">
-              Leading provider of premium ready-mix concrete solutions with over 15 years of excellence in quality,
-              reliability, and customer satisfaction.
-            </p>
+            <div className="flex justify-center md:justify-start">
+              <Image
+                src="/images/logo-1.png"
+                alt="KD Logo"
+                width={200}
+                height={60}
+                className="object-contain"
+              />
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -65,21 +76,26 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-accent flex-shrink-0" />
-                <span className="text-primary-foreground/80 text-xs sm:text-sm">+91 98765 43210</span>
+                <span className="text-primary-foreground/80 text-xs sm:text-sm">
+                  +91 98765 43210
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-accent flex-shrink-0" />
-                <span className="text-primary-foreground/80 text-xs sm:text-sm">info@kd.com</span>
+                <span className="text-primary-foreground/80 text-xs sm:text-sm">
+                  info@kd.com
+                </span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-primary-foreground/20 py-6">
+        <div className="border-t border-primary-foreground/20 py-6 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-primary-foreground/80 text-xs sm:text-sm text-center md:text-left">
-              © {currentYear} KD. All rights reserved. Built with excellence and precision.
+              © {currentYear} KD. All rights reserved. Built with excellence and
+              precision.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end space-x-4 sm:space-x-6 text-xs sm:text-sm">
               <span className="text-primary-foreground/80 hover:text-accent cursor-pointer transition-colors">
@@ -96,5 +112,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

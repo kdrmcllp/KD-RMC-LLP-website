@@ -65,7 +65,7 @@ export default function RmcExplanationSection() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gray-50">
+    <section ref={sectionRef} className="py-20 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div
@@ -73,12 +73,6 @@ export default function RmcExplanationSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div
-            className="inline-block px-4 py-2 rounded-full text-sm font-semibold text-white"
-            style={{ backgroundColor: "#1b2c50" }}
-          >
-            OUR PRODUCT
-          </div>
           <h2 className="text-4xl font-bold text-gray-900">
             What is <span style={{ color: "#1b2c50" }}>Ready Mix Concrete</span>
             ?

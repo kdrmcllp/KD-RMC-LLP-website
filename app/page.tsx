@@ -1,7 +1,7 @@
 import Navbar from "@/components/navbar";
 import HeroSection from "@/components/hero-section";
 import AboutSection from "@/components/about-section";
-import CertificatesSection from "@/components/certificates-section";
+// import CertificatesSection from "@/components/certificates-section";
 import PartnersSection from "@/components/partners-section";
 import ProductsSection from "@/components/products-section";
 import BuconSection from "@/components/bucon-section";
@@ -130,7 +130,7 @@ export default function Home() {
         <Navbar />
         <HeroSection />
         <AboutSection />
-        <CertificatesSection />
+        {/* <CertificatesSection /> */}
         <PartnersSection />
         <ProductsSection />
         <BuconSection />
