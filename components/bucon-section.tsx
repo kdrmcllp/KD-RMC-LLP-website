@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Building2, Users, Award, Target } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Button from "@/components/ui/Button"; // ⬅️ import your reusable Button
 
 export default function BuconSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -159,7 +160,7 @@ export default function BuconSection() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6">
-              {highlights.map((highlight, index) => (
+              {highlights.map((highlight) => (
                 <div
                   key={highlight.title}
                   className="flex items-start space-x-3 gsap-animate highlight-card opacity-0 transform translate-y-4 p-3 rounded-lg transition-all duration-300"
@@ -191,19 +192,9 @@ export default function BuconSection() {
             </div>
 
             <div className="pt-6">
-              <button
-                className="inline-flex items-center px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-                style={{ backgroundColor: "#1b2c50" }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#1a2847";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#1b2c50";
-                }}
-                onClick={() => router.push("/bucon")}
-              >
+              <Button onClick={() => router.push("/bucon")}>
                 Learn More About Bucon
-              </button>
+              </Button>
             </div>
           </div>
 
@@ -213,21 +204,15 @@ export default function BuconSection() {
               isVisible ? "animate-slide-in-left" : "opacity-0"
             }`}
           >
-            <div className="relative overflow-hidden rounded-lg shadow-2xl h-64 sm:h-80 lg:h-96">
+            <div className="relative overflow-hidden rounded-lg shadow-2xl h-40 sm:h-56 lg:h-72">
               <Image
                 src="/images/BUCON logo trasparent.png"
                 alt="Bucon Readymix Plant"
                 fill
-                className="object-cover fade-in-image"
+                className="object-contain fade-in-image"
                 priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                sizes="(max-width: 768px) 80vw, (max-width: 1200px) 40vw, 400px"
               />
-              <div
-                className="absolute inset-0 bg-gradient-to-t to-transparent"
-                style={{
-                  background: `linear-gradient(to top, rgba(27, 44, 80, 0.2), transparent)`,
-                }}
-              ></div>
             </div>
           </div>
         </div>

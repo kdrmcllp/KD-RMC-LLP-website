@@ -83,7 +83,7 @@ export default function BuconPage() {
         {/* About Section */}
         <section ref={sectionRef} className="py-20 bg-muted/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 items-center">
               <div
                 className={`space-y-8 ${
                   isVisible ? "animate-fade-in-up" : "opacity-0"
@@ -107,7 +107,7 @@ export default function BuconPage() {
                   <p className="text-lg">
                     Both Partners have experience of over a decade in a
                     leadership role in leading ready mixed concrete and/or
-                    construction organizations and brings to the table a unique
+                    construction organizations and bring to the table a unique
                     blend of skills that will help Bucon Readymix LLP achieve
                     its goal of being a significant force in the ready mixed
                     concrete industry.
@@ -134,27 +134,26 @@ export default function BuconPage() {
                 </div>
               </div>
 
-              <div
-                className={`relative ${
-                  isVisible ? "animate-slide-in-right" : "opacity-0"
-                }`}
-              >
-                <div className="relative overflow-hidden rounded-lg shadow-2xl">
-                  <div className="relative w-full h-[500px] rounded-lg shadow-2xl overflow-hidden">
-                    <Image
-                      src="/ready-mix-concrete-plant.jpg"
-                      alt="Bucon Readymix Plant"
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1b2c50]/20 to-transparent"></div>
-                  </div>
-                </div>
-              </div>
+             <div
+  className={`relative w-[300px] h-[200px] rounded-lg shadow-2xl overflow-hidden ml-6 sm:ml-12 md:ml-20 lg:ml-32 ${
+    isVisible ? "animate-slide-in-right" : "opacity-0"
+  }`}
+>
+  <Image
+    src="/images/BUCON logo trasparent.png"
+    alt="Bucon Readymix Logo"
+    width={300}
+    height={200}
+    className="object-contain"
+    priority
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-[#1b2c50]/20 to-transparent" />
+</div>
+
             </div>
           </div>
         </section>
+
         <CertificatesSection />
 
         {/* Services Section */}

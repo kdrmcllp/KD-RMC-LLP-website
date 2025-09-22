@@ -170,22 +170,6 @@ export default function RmcExplanationSection() {
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
             </div>
-
-            {/* Floating Info Card */}
-            <div
-              className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-xl border-l-4"
-              style={{ borderColor: "#1b2c50" }}
-            >
-              <div className="text-center">
-                <div
-                  className="text-2xl font-bold"
-                  style={{ color: "#1b2c50" }}
-                >
-                  m³
-                </div>
-                <div className="text-xs text-gray-500">Sold by Volume</div>
-              </div>
-            </div>
           </div>
         </div>
 

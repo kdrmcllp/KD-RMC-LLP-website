@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image"; 
+import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
@@ -26,7 +26,7 @@ export default function Footer() {
       style={{ backgroundImage: "url('/images/construction-bg-footer.jpg')" }} // ensure the file name has no space
     >
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-primary/90" /> 
+      <div className="absolute inset-0 bg-primary/90" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
@@ -77,13 +77,13 @@ export default function Footer() {
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-accent flex-shrink-0" />
                 <span className="text-primary-foreground/80 text-xs sm:text-sm">
-                  +91 98765 43210
+                  +91 9920374769
                 </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-accent flex-shrink-0" />
                 <span className="text-primary-foreground/80 text-xs sm:text-sm">
-                  info@kd.com
+                  kdrmcllp@gmail.com
                 </span>
               </div>
             </div>

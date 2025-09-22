@@ -75,12 +75,6 @@ export default function QualityAggregatesSection() {
             variants={itemVariants}
             className="text-center mb-12 lg:mb-16"
           >
-            <div className="inline-block px-3 sm:px-4 py-2 bg-[#1b2c50]/10 rounded-full mb-4 sm:mb-6">
-              <span className="text-[#1b2c50] font-semibold text-xs sm:text-sm uppercase tracking-wide">
-                Our Management
-              </span>
-            </div>
-
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight animate-text-reveal">
               QUALITY CRUSHED <span className="text-[#1b2c50]">AGGREGATES</span>
             </h2>
@@ -159,7 +153,7 @@ export default function QualityAggregatesSection() {
               {/* Main Image */}
               <div className="relative h-60 sm:h-72 lg:h-80 rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/vsi-crusher-machine-in-industrial-setting-with-agg.jpg"
+                  src="/images/plant 7.jpg"
                   alt="VSI Crusher Technology"
                   fill
                   className="object-cover fade-in-image"

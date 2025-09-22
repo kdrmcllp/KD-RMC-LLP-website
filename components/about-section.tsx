@@ -3,12 +3,14 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-// import AboutCard from "../components/ui/AboutCard"; // ⬅️ import the new card
+import { useRouter } from "next/navigation";
+import Button from "@/components/ui/Button";
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(textRef, { once: true, margin: "-100px" });
+  const router = useRouter();
 
   const textVariants = {
     hidden: { opacity: 0 },
@@ -44,9 +46,9 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Image Side */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -100 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.2, ease: "easeIn" }}
             className="relative order-2 lg:order-1"
           >
             <div className="relative overflow-hidden rounded-lg shadow-2xl">
@@ -62,31 +64,26 @@ export default function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
-
-            {/* ✅ About Card */}
-            {/* <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6">
-              <AboutCard value="10+" label="Years of Excellence" />
-            </div> */}
           </motion.div>
 
           {/* Content Side */}
           <motion.div
             ref={textRef}
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 100 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.2, ease: "easeIn" }}
             className="space-y-6 lg:space-y-8 order-1 lg:order-2"
           >
             <div className="space-y-4">
               <motion.h2
-                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground text-balance"
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground text-balance leading-tight"
                 variants={textVariants}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
               >
-                {splitText("Building Excellence with")}
+                <span>{splitText("Building Excellence with")}</span>
                 <br />
-                <span className="text-primary font-extrabold">
+                <span className="text-primary font-bold">
                   {splitText(" Premium Concrete Solutions")}
                 </span>
               </motion.h2>
@@ -99,7 +96,7 @@ export default function AboutSection() {
                 className="text-base sm:text-lg"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ duration: 1.2, ease: "easeIn", delay: 0.2 }}
               >
                 KD RMC LLP is a Proprietorship firm. Hard Work of Mr. Kailash
                 Purohit has now taken this firm to the new height. KD RMC LLP
@@ -113,7 +110,7 @@ export default function AboutSection() {
                 className="text-base sm:text-lg"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 1.2, ease: "easeIn", delay: 0.4 }}
               >
                 Despite significant challenges and competition in the market,
                 the Company underpinned significant growth in its sale and
@@ -127,7 +124,7 @@ export default function AboutSection() {
                 className="text-base sm:text-lg space-y-2 ml-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                transition={{ duration: 1.2, ease: "easeIn", delay: 0.6 }}
               >
                 <p>
                   • Increase in its market share and differentiation from
@@ -148,26 +145,26 @@ export default function AboutSection() {
               </motion.div>
             </div>
 
+            {/* ✅ Reusable Button */}
             <div className="pt-6">
-              <a
-                href="/about-us"
-                className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 group cement-texture-btn modern-btn relative overflow-hidden"
-              >
-                <span className="relative z-10">Read More About Us</span>
-                <svg
-                  className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 relative z-10"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </a>
+              <Button onClick={() => router.push("/about-us")}>
+                <span className="relative z-10 flex items-center">
+                  Read More About Us
+                  <svg
+                    className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </span>
+              </Button>
             </div>
           </motion.div>
         </div>

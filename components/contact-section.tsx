@@ -53,7 +53,7 @@ export default function ContactSection() {
     {
       icon: Mail,
       title: "Email Address",
-      details: ["kdrmcllp@gmail.com", "kdpurohit1284@gmail.com"],
+      details: ["kdrmcllp@gmail.com", "kdpurohit1284@gmail.com"], 
       action: "Send Email",
       actionType: "email",
     },
