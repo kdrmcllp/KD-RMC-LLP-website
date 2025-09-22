@@ -7,26 +7,26 @@ import QualityAggregatesSection from "@/components/quality-aggregates-section";
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  name: "About KD Corporation - Quality Crushed Aggregates",
+  name: "About KD RMC LLP - Quality Crushed Aggregates",
   description:
-    "Learn about K.D.CORPORATION's mission, vision, and commitment to delivering quality crushed aggregates using advanced VSI technology.",
+    "Learn about KD RMC LLP's mission, vision, and commitment to delivering quality crushed aggregates using advanced VSI technology.",
   url: "https://kd-concrete.com/about-us",
   mainEntity: {
     "@type": "Organization",
-    name: "K.D.CORPORATION",
+    name: "KD RMC LLP",
     description:
       "Leading manufacturer of quality crushed aggregates with 10+ years of experience in the industry.",
   },
 };
 
 export const metadata = {
-  title: "About Us - K.D.CORPORATION | Quality Crushed Aggregates",
+  title: "About Us - KD RMC LLP | Quality Crushed Aggregates",
   description:
-    "Learn about K.D.CORPORATION's mission, vision, and commitment to delivering quality crushed aggregates using advanced VSI technology.",
+    "Learn about KD RMC LLP mission, vision, and commitment to delivering quality crushed aggregates using advanced VSI technology.",
   keywords:
-    "about KD Corporation, crushed aggregates, VSI technology, construction materials, quality aggregates",
+    "about KD RMC LLP, crushed aggregates, VSI technology, construction materials, quality aggregates",
   openGraph: {
-    title: "About Us - K.D.CORPORATION",
+    title: "About Us - KD RMC LLP",
     description:
       "Leading manufacturer of quality crushed aggregates with 10+ years of experience",
     type: "website",

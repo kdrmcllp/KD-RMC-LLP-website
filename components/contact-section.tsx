@@ -51,26 +51,26 @@ export default function ContactSection() {
     {
       icon: Phone,
       title: "Phone Numbers",
-      details: [
-        "+91 98765 43211",
-        "+91 98765 43212",
-        "1800-123-4567 (Toll Free)",
-      ],
+      details: ["+91 9920374769", "+91 98765 43212"],
       action: "Call Now",
       actionType: "phone",
     },
     {
       icon: Mail,
       title: "Email Address",
-      details: ["info@kd.com", "sales@kd.com", "support@kd.com"],
+      details: ["kdrmcllp@gmail.com", "kdpurohit1284@gmail.com"],
       action: "Send Email",
       actionType: "email",
     },
   ];
 
   const openGoogleMaps = () => {
-    const address =
-      "3rd Floor, Flat No.303, Wing 1, Ramdev Dham Co.Op.Hsg Soc.Ltd, Kenwood Park, Behind Seven Square School, Miraroad-East, Thane-401107";
+    const address = `
+      3rd Floor, Flat No.303, Wing 1,
+      Ramdev Dham Co.Op.Hsg Soc.Ltd,
+      Kenwood Park, Behind Seven Square School,
+      Miraroad-East, Thane-401107
+    `;
     const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
       address
     )}`;
@@ -78,7 +78,7 @@ export default function ContactSection() {
   };
 
   const openWhatsApp = () => {
-    const phoneNumber = "919876543210"; // Remove + and spaces for WhatsApp URL
+    const phoneNumber = "919876543210";
     const message =
       "Hi I came across your website and would like to have a meeting interested";
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
@@ -115,9 +115,12 @@ export default function ContactSection() {
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Get in Touch with
-            <span style={{ color: '#1b2c50' }}> Our Expert Team</span>
+            <span style={{ color: "#1b2c50" }}> Our Expert Team</span>
           </h2>
-          <div className="w-24 h-1 rounded-full mx-auto mb-6" style={{ backgroundColor: '#1b2c50' }}></div>
+          <div
+            className="w-24 h-1 rounded-full mx-auto mb-6"
+            style={{ backgroundColor: "#1b2c50" }}
+          ></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Ready to discuss your concrete requirements? Our experienced team is
             here to provide expert guidance and competitive pricing for your
@@ -146,19 +149,22 @@ export default function ContactSection() {
                       <div className="flex-shrink-0">
                         <div
                           className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                            info.actionType === "whatsapp"
-                              ? "bg-green-100"
-                              : ""
+                            info.actionType === "whatsapp" ? "bg-green-100" : ""
                           }`}
-                          style={info.actionType !== "whatsapp" ? { backgroundColor: '#1b2c50', opacity: 0.1 } : {}}
+                          style={
+                            info.actionType !== "whatsapp"
+                              ? { backgroundColor: "#1b2c50", opacity: 0.1 }
+                              : {}
+                          }
                         >
                           <info.icon
-                            className={`w-6 h-6 ${
+                            className="w-6 h-6"
+                            color={
                               info.actionType === "whatsapp"
-                                ? "text-green-600"
-                                : ""
-                            }`}
-                            style={info.actionType !== "whatsapp" ? { color: '#1b2c50' } : {}}
+                                ? "#16a34a"
+                                : "#1b2c50"
+                            }
+                            strokeWidth={1.8}
                           />
                         </div>
                       </div>
@@ -179,22 +185,26 @@ export default function ContactSection() {
                               ? "text-green-600 border-green-600 bg-transparent hover:bg-green-600 hover:text-white"
                               : "bg-transparent hover:text-white"
                           }`}
-                          style={info.actionType !== "whatsapp" ? { 
-                            color: '#1b2c50', 
-                            borderColor: '#1b2c50' 
-                          } : {}}
+                          style={
+                            info.actionType !== "whatsapp"
+                              ? {
+                                  color: "#1b2c50",
+                                  borderColor: "#1b2c50",
+                                }
+                              : {}
+                          }
                           onMouseEnter={(e) => {
                             if (info.actionType !== "whatsapp") {
                               const target = e.target as HTMLButtonElement;
-                              target.style.backgroundColor = '#1b2c50';
-                              target.style.color = 'white';
+                              target.style.backgroundColor = "#1b2c50";
+                              target.style.color = "white";
                             }
                           }}
                           onMouseLeave={(e) => {
                             if (info.actionType !== "whatsapp") {
                               const target = e.target as HTMLButtonElement;
-                              target.style.backgroundColor = 'transparent';
-                              target.style.color = '#1b2c50';
+                              target.style.backgroundColor = "transparent";
+                              target.style.color = "#1b2c50";
                             }
                           }}
                           onClick={() => handleContactAction(info.actionType)}
@@ -237,7 +247,10 @@ export default function ContactSection() {
                     <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="bg-white bg-opacity-90 backdrop-blur-sm rounded-lg p-4 group-hover:bg-white transition-colors duration-300">
-                        <MapPin className="w-8 h-8 mx-auto mb-2" style={{ color: '#1b2c50' }} />
+                        <MapPin
+                          className="w-8 h-8 mx-auto mb-2"
+                          style={{ color: "#1b2c50" }}
+                        />
                         <p className="text-sm font-medium text-gray-900">
                           Click to Open in Google Maps
                         </p>

@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { Card } from "@/components/ui/AboutCard";
 import { CheckCircle, Factory, Truck, Shield } from "lucide-react";
 
 export default function BuconPage() {
@@ -65,20 +64,20 @@ export default function BuconPage() {
       <Navbar />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="pt-24 pb-16 bg-gradient-to-br from-accent/5 to-background">
+        <section className="pt-24 pb-16 bg-gradient-to-br from-[#1b2c50]/5 to-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-6">
-              <div className="inline-block px-4 py-2 bg-accent/10 rounded-full text-accent font-semibold text-sm">
+              <div className="inline-block px-4 py-2 bg-[#1b2c50]/10 rounded-full text-[#1b2c50] font-semibold text-sm">
                 SISTER COMPANY
               </div>
               <h1 className="text-5xl font-bold text-foreground text-balance">
-                <span className="text-accent">BUCON READYMIX</span> LLP
+                <span className="text-[#1b2c50]">BUCON READYMIX</span> LLP
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Independent ready mixed concrete company committed to excellence
                 and innovation in the construction industry
               </p>
-              <div className="w-20 h-1 bg-accent rounded-full mx-auto"></div>
+              <div className="w-20 h-1 bg-[#1b2c50] rounded-full mx-auto"></div>
             </div>
           </div>
         </section>
@@ -95,9 +94,9 @@ export default function BuconPage() {
                 <div className="space-y-4">
                   <h2 className="text-4xl font-bold text-foreground text-balance">
                     About{" "}
-                    <span className="text-accent">Bucon Readymix LLP</span>
+                    <span className="text-[#1b2c50]">Bucon Readymix LLP</span>
                   </h2>
-                  <div className="w-20 h-1 bg-accent rounded-full"></div>
+                  <div className="w-20 h-1 bg-[#1b2c50] rounded-full"></div>
                 </div>
 
                 <div className="space-y-6 text-muted-foreground leading-relaxed">
@@ -119,18 +118,18 @@ export default function BuconPage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-6">
-                  <Card className="p-4 border-l-4 border-l-accent">
-                    <div className="text-2xl font-bold text-accent">2021</div>
+                  <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 border-l-4 border-l-[#1b2c50]">
+                    <div className="text-3xl font-bold text-[#1b2c50] mb-2">2021</div>
                     <div className="text-sm text-muted-foreground">
                       Established
                     </div>
-                  </Card>
-                  <Card className="p-4 border-l-4 border-l-accent">
-                    <div className="text-2xl font-bold text-accent">10+</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 border-l-4 border-l-[#1b2c50]">
+                    <div className="text-3xl font-bold text-[#1b2c50] mb-2">10+</div>
                     <div className="text-sm text-muted-foreground">
                       Years Experience
                     </div>
-                  </Card>
+                  </div>
                 </div>
               </div>
 
@@ -148,7 +147,7 @@ export default function BuconPage() {
                       className="object-cover"
                       priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1b2c50]/20 to-transparent"></div>
                   </div>
                 </div>
               </div>
@@ -161,24 +160,24 @@ export default function BuconPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-4 mb-16">
               <h2 className="text-4xl font-bold text-foreground text-balance">
-                Why Choose Our <span className="text-accent">RMC Company</span>
+                Why Choose Our <span className="text-[#1b2c50]">RMC Company</span>
               </h2>
-              <div className="w-20 h-1 bg-accent rounded-full mx-auto"></div>
+              <div className="w-20 h-1 bg-[#1b2c50] rounded-full mx-auto"></div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-16">
               {services.map((service, index) => (
-                <Card
+                <div
                   key={service.title}
-                  className={`p-6 hover:shadow-lg transition-all duration-300 border-l-4 border-l-accent/20 hover:border-l-accent ${
+                  className={`bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 border-l-4 border-l-[#1b2c50]/20 hover:border-l-[#1b2c50] ${
                     isVisible ? "animate-fade-in-up" : "opacity-0"
                   }`}
                   style={{ animationDelay: `${0.1 + index * 0.1}s` }}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                        <service.icon className="w-6 h-6 text-accent" />
+                      <div className="w-12 h-12 bg-[#1b2c50]/10 rounded-lg flex items-center justify-center">
+                        <service.icon className="w-6 h-6 text-[#1b2c50]" />
                       </div>
                     </div>
                     <div>
@@ -190,12 +189,12 @@ export default function BuconPage() {
                       </p>
                     </div>
                   </div>
-                </Card>
+                </div>
               ))}
             </div>
 
             {/* Quality Management */}
-            <div className="bg-accent/5 p-8 rounded-lg">
+            <div className="bg-[#1b2c50]/5 p-8 rounded-lg">
               <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
                 Quality Management System
               </h3>
@@ -214,7 +213,7 @@ export default function BuconPage() {
                     }`}
                     style={{ animationDelay: `${0.5 + index * 0.1}s` }}
                   >
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-[#1b2c50] flex-shrink-0" />
                     <span className="text-muted-foreground">{feature}</span>
                   </div>
                 ))}
@@ -223,25 +222,7 @@ export default function BuconPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-foreground mb-6">
-              Partner with Bucon Readymix LLP
-            </h2>
-            <p className="text-muted-foreground mb-8 text-lg">
-              Experience the difference of working with an independent ready
-              mixed concrete company that prioritizes quality, innovation, and
-              customer satisfaction.
-            </p>
-            <a
-              href="/#contact"
-              className="inline-flex items-center px-8 py-3 bg-accent text-accent-foreground font-semibold rounded-lg hover:bg-accent/90 transition-colors duration-300"
-            >
-              Contact Us Today
-            </a>
-          </div>
-        </section>
+        
       </main>
       <Footer />
     </>

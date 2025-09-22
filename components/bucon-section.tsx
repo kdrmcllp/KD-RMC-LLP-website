@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Building2, Users, Award, Target } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BuconSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -129,19 +130,17 @@ export default function BuconSection() {
             }`}
           >
             <div className="space-y-4">
-              <div
+              {/* <div
                 className="inline-block px-3 sm:px-4 py-2 rounded-full text-white font-semibold text-xs sm:text-sm gsap-animate opacity-0 transform translate-y-4"
                 style={{ backgroundColor: "#1b2c50" }}
               >
                 SISTER COMPANY
-              </div>
+              </div> */}
               <h2
                 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-balance gsap-animate opacity-0 transform translate-y-4"
                 style={{ color: "#1b2c50" }}
               >
-                <span style={{ color: "#1b2c50" }}>BUCON READYMIX</span>
-                <br />
-                LLP
+                <span style={{ color: "#1b2c50" }}>BUCON</span>
               </h2>
               <div
                 className="w-16 sm:w-20 h-1 rounded-full gsap-animate opacity-0 transform translate-y-4"

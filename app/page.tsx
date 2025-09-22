@@ -12,7 +12,7 @@ import Footer from "@/components/footer";
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "K.D.CORPORATION",
+  name: "KD RMC LLP",
   alternateName: "KD",
   url: "https://kd-concrete.com",
   logo: "https://kd-concrete.com/logo.png",
@@ -62,14 +62,14 @@ const structuredData = {
 
 export const metadata = {
   title:
-    "K.D.CORPORATION - Premium Crushed Aggregates & Ready Mix Concrete | Mumbai",
+    "KD RMC LLP - Premium Crushed Aggregates & Ready Mix Concrete | Mumbai",
   description:
     "Leading supplier of quality crushed aggregates and ready mix concrete in Mumbai. ISO certified with 10+ years experience. VSI technology for superior quality construction materials.",
   keywords:
     "crushed aggregates, ready mix concrete, RMC, VSI technology, construction materials, Mumbai, Maharashtra, quality aggregates, concrete supplier, building materials",
-  authors: [{ name: "K.D.CORPORATION" }],
-  creator: "K.D.CORPORATION",
-  publisher: "K.D.CORPORATION",
+  authors: [{ name: "KD RMC LLP" }],
+  creator: "KD RMC LLP",
+  publisher: "KD RMC LLP",
   formatDetection: {
     email: false,
     address: false,
@@ -80,17 +80,17 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "K.D.CORPORATION - Premium Crushed Aggregates & Ready Mix Concrete",
+    title: "KD RMC LLP - Premium Crushed Aggregates & Ready Mix Concrete",
     description:
       "Leading supplier of quality crushed aggregates and ready mix concrete in Mumbai. ISO certified with 10+ years experience.",
     url: "https://kd-concrete.com",
-    siteName: "K.D.CORPORATION",
+    siteName: "KD RMC LLP",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "K.D.CORPORATION - Quality Crushed Aggregates",
+        alt: "KD RMC LLP - Quality Crushed Aggregates",
       },
     ],
     locale: "en_IN",
@@ -98,7 +98,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "K.D.CORPORATION - Premium Crushed Aggregates & Ready Mix Concrete",
+    title: "KD RMC LLP - Premium Crushed Aggregates & Ready Mix Concrete",
     description:
       "Leading supplier of quality crushed aggregates and ready mix concrete in Mumbai. ISO certified with 10+ years experience.",
     images: ["/og-image.jpg"],
@@ -134,7 +134,7 @@ export default function Home() {
         <PartnersSection />
         <ProductsSection />
         <BuconSection />
-        {/* <RmcExplanationSection /> */}
+        <RmcExplanationSection />
         <ContactSection />
         <Footer />
       </main>
