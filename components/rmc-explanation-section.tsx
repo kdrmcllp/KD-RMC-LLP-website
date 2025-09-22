@@ -7,7 +7,7 @@ import {
   CheckCircle,
   Clock,
   Shield,
-} from "lucide-react"; 
+} from "lucide-react";
 import Image from "next/image";
 
 export default function RmcExplanationSection() {
@@ -63,7 +63,7 @@ export default function RmcExplanationSection() {
       description: "Consistent quality and performance",
     },
   ];
-  const [imageError, setImageError] = useState(false);
+
   return (
     <section ref={sectionRef} className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -166,26 +166,13 @@ export default function RmcExplanationSection() {
             }`}
           >
             <div className="relative w-full h-[400px] overflow-hidden rounded-lg shadow-2xl">
-              {!imageError ? (
-                <Image
-                  src="/images/plant-5.jpg"
-                  alt="RMC Delivery Truck"
-                  fill
-                  className="object-cover rounded-lg"
-                  onError={() => setImageError(true)}
-                  priority // Optional: improves LCP
-                />
-              ) : (
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center rounded-lg">
-                  <div className="text-center text-gray-500">
-                    <Truck className="w-16 h-16 mx-auto mb-2 text-blue-400" />
-                    <p className="text-sm">RMC Delivery Truck</p>
-                    <p className="text-xs opacity-75">
-                      Check image path: /images/plant-5.jpg
-                    </p>
-                  </div>
-                </div>
-              )}
+              <Image
+                src="/images/plant 5.jpg"
+                alt="RMC Delivery Truck"
+                fill
+                className="object-cover rounded-lg"
+                priority // Optional: improves LCP
+              />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
             </div>
