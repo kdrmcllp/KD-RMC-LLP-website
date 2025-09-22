@@ -1,7 +1,6 @@
 "use client";
 
 import type React from "react";
-
 import { motion, type Transition, type Easing } from "motion/react";
 import { useEffect, useRef, useState, useMemo } from "react";
 
@@ -56,16 +55,22 @@ const BlurText: React.FC<BlurTextProps> = ({
 
   useEffect(() => {
     if (!ref.current) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          observer.unobserve(ref.current as Element);
+          // Only unobserve if ref.current is an Element
+          if (ref.current instanceof Element) {
+            observer.unobserve(ref.current);
+          }
         }
       },
       { threshold, rootMargin }
     );
+
     observer.observe(ref.current);
+
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
 
