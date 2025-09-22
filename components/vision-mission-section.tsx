@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation, Variants } from "framer-motion";
-import { Target, Eye } from "lucide-react";
+import { Target, Eye } from "lucide-react"; 
 
 export default function VisionMissionSection() {
   const ref = useRef(null);

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
+import { motion, useInView, useAnimation, Variants } from "framer-motion";
 import Image from "next/image";
 
 export default function AboutCompanySection() {
@@ -15,7 +15,7 @@ export default function AboutCompanySection() {
     }
   }, [isInView, controls]);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -26,14 +26,14 @@ export default function AboutCompanySection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: "easeOut", // This is now properly typed
       },
     },
   };
@@ -71,19 +71,19 @@ export default function AboutCompanySection() {
                 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight"
               >
                 Building Excellence with{" "}
-                <span className="text-[#1b2c50]">K.D.CORPORATION</span>
+                <span className="text-[#1b2c50]">KD RMC LLP</span>
               </motion.h2>
 
               <motion.p
                 variants={itemVariants}
                 className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8"
               >
-                K.D.CORPORATION has been a trusted name in the aggregate
-                industry, committed to delivering superior quality crushed
-                aggregates that meet the highest standards of construction
-                excellence. Our journey began with a vision to revolutionize the
-                aggregate manufacturing process through innovation and
-                unwavering dedication to quality.
+                KD RMC LLP has been a trusted name in the aggregate industry,
+                committed to delivering superior quality crushed aggregates that
+                meet the highest standards of construction excellence. Our
+                journey began with a vision to revolutionize the aggregate
+                manufacturing process through innovation and unwavering
+                dedication to quality.
               </motion.p>
 
               <motion.p
@@ -107,9 +107,9 @@ export default function AboutCompanySection() {
             <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/placeholder-g2hyf.png"
-                alt="K.D.CORPORATION Manufacturing Plant"
+                alt="KD RMC LLP Manufacturing Plant"
                 fill
-                className="object-cover fade-in-image" // Added fade-in-image class
+                className="object-cover fade-in-image"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1b2c50]/20 to-transparent" />

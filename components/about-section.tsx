@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import AboutCard from "../components/ui/AboutCard"; // ⬅️ import the new card
+// import AboutCard from "../components/ui/AboutCard"; // ⬅️ import the new card
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -64,9 +64,9 @@ export default function AboutSection() {
             </div>
 
             {/* ✅ About Card */}
-            <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6">
+            {/* <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6">
               <AboutCard value="10+" label="Years of Excellence" />
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Content Side */}
