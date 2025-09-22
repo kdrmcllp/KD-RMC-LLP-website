@@ -41,7 +41,7 @@ export default function ContactSection() {
       icon: MessageCircle,
       title: "WhatsApp",
       details: [
-        "+91 98765 43210",
+        "+91 9920374769",
         "Quick Response Guaranteed",
         "Available 24/7",
       ],
@@ -51,7 +51,7 @@ export default function ContactSection() {
     {
       icon: Phone,
       title: "Phone Numbers",
-      details: ["+91 9920374769", "+91 98765 43212"],
+      details: ["+91 9920374769", "+91 8976794164"],
       action: "Call Now",
       actionType: "phone",
     },

@@ -67,9 +67,6 @@ export default function BuconPage() {
         <section className="pt-24 pb-16 bg-gradient-to-br from-[#1b2c50]/5 to-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-6">
-              <div className="inline-block px-4 py-2 bg-[#1b2c50]/10 rounded-full text-[#1b2c50] font-semibold text-sm">
-                SISTER COMPANY
-              </div>
               <h1 className="text-5xl font-bold text-foreground text-balance">
                 <span className="text-[#1b2c50]">BUCON READYMIX</span> LLP
               </h1>
@@ -119,13 +116,17 @@ export default function BuconPage() {
 
                 <div className="grid grid-cols-2 gap-6">
                   <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 border-l-4 border-l-[#1b2c50]">
-                    <div className="text-3xl font-bold text-[#1b2c50] mb-2">2021</div>
+                    <div className="text-3xl font-bold text-[#1b2c50] mb-2">
+                      2021
+                    </div>
                     <div className="text-sm text-muted-foreground">
                       Established
                     </div>
                   </div>
                   <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 border-l-4 border-l-[#1b2c50]">
-                    <div className="text-3xl font-bold text-[#1b2c50] mb-2">10+</div>
+                    <div className="text-3xl font-bold text-[#1b2c50] mb-2">
+                      10+
+                    </div>
                     <div className="text-sm text-muted-foreground">
                       Years Experience
                     </div>
@@ -160,7 +161,8 @@ export default function BuconPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-4 mb-16">
               <h2 className="text-4xl font-bold text-foreground text-balance">
-                Why Choose Our <span className="text-[#1b2c50]">RMC Company</span>
+                Why Choose Our{" "}
+                <span className="text-[#1b2c50]">RMC Company</span>
               </h2>
               <div className="w-20 h-1 bg-[#1b2c50] rounded-full mx-auto"></div>
             </div>
@@ -221,8 +223,6 @@ export default function BuconPage() {
             </div>
           </div>
         </section>
-
-        
       </main>
       <Footer />
     </>

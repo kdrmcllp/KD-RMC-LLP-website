@@ -101,8 +101,8 @@ export default function AboutSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                K.D.CORPORATION is a Proprietorship firm. Hard Work of Mr.
-                Kailash Purohit has now taken this firm to the new height. K D
+                KD RMC LLP is a Proprietorship firm. Hard Work of Mr. Kailash
+                Purohit has now taken this firm to the new height. K D
                 CORPORATION was established in Maharashtra in year 2017. It
                 started operating as a construction trading entity whereby its
                 initial activities included Aggregate and construction material
