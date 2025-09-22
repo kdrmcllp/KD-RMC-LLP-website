@@ -51,7 +51,7 @@ export default function AboutSection() {
           >
             <div className="relative overflow-hidden rounded-lg shadow-2xl">
               <Image
-                src="/concrete-factory-workers-quality-control.jpg"
+                src="/images/aboutus.jpg"
                 alt="KD Factory Operations"
                 layout="responsive"
                 width={1200}

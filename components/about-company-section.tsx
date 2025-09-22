@@ -106,7 +106,7 @@ export default function AboutCompanySection() {
           >
             <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/placeholder-g2hyf.png"
+                src="/images/aboutus.jpg"
                 alt="KD RMC LLP Manufacturing Plant"
                 fill
                 className="object-cover fade-in-image"
