@@ -53,7 +53,7 @@ export default function ContactSection() {
     {
       icon: Mail,
       title: "Email Address",
-      details: ["kdrmcllp@gmail.com", "kdpurohit1284@gmail.com"], 
+      details: ["kdrmcllp@gmail.com", "kdpurohit1284@gmail.com"],
       action: "Send Email",
       actionType: "email",
     },
@@ -136,7 +136,7 @@ export default function ContactSection() {
                       }`}
                     >
                       <info.icon
-                        className={`w-6 h-6`}
+                        className="w-6 h-6"
                         stroke="#1b2c50"
                         strokeWidth={1.8}
                       />
@@ -175,7 +175,7 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Map */}
+          {/* Google Map Embed */}
           <div
             className={`${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
             style={{ animationDelay: "0.4s" }}
@@ -183,7 +183,7 @@ export default function ContactSection() {
             <div className="bg-white rounded-lg border border-gray-200 shadow-sm h-full overflow-hidden">
               <iframe
                 title="KD Location Map"
-                src="https://www.google.com/maps/search/?api=1&query=3rd%20Floor%2C%20Flat%20No.303%2C%20Wing%201%2C%20Ramdev%20Dham%20Co.Op.Hsg%20Soc.Ltd%2C%20Kenwood%20Park%2C%20Behind%20Seven%20Square%20School%2C%20Miraroad-East%2C%20Thane-401107"
+                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15063.517808187733!2d72.86298074103294!3d19.287607810169646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s3rd%20Floor%2C%20Flat%20No.303%2C%20Wing%201%20%20Ramdev%20Dham%20Co.Op.Hsg%20Soc.Ltd%20%20Kenwood%20Park%2C%20Behind%20Seven%20Square%20School%20%20Miraroad-East%2C%20Thane-401107!5e0!3m2!1sen!2sin!4v1758612736535!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 className="rounded-lg min-h-[400px]"
