@@ -56,7 +56,7 @@ export default function PartnersSection() {
         <div className="text-center mb-12">
           <motion.h2
             ref={headingRef}
-            className="text-3xl font-bold text-foreground mb-4 text-balance"
+            className="text-lg sm:text-2xl md:text-3xl font-bold text-foreground mb-4 text-balance leading-snug"
             variants={textVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"} // animate every time in view
