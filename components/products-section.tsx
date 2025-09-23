@@ -136,36 +136,61 @@ export default function ProductsSection() {
           <div className="w-32 h-1 bg-[#1b2c50] rounded-full mx-auto mb-8"></div>
         </div>
 
-        {/* Image Section */}
+        {/* Updated Image Section */}
         <div
-          className={`grid lg:grid-cols-2 gap-12 mb-8 ${
+          className={`grid lg:grid-cols-2 gap-8 mb-12 ${
             isVisible ? "animate-fade-in-up" : "opacity-0"
           }`}
         >
-          <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/images/plant 6.jpg"
-              alt="KD Corporation Plant Operations"
-              fill
-              className="object-cover rounded-xl fade-in-image"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1b2c50]/20 to-transparent rounded-xl"></div>
-            <div className="absolute bottom-6 left-6 text-white z-10">
-              <h3 className="text-2xl font-bold mb-2">Modern Plant Facility</h3>
+          {/* Left side - Two stacked horizontal images */}
+          <div className="flex flex-col gap-6">
+            {/* Top image */}
+            <div className="relative w-full h-[200px] sm:h-[240px] rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/plant 6.jpg"
+                alt="KD Corporation Team with Fleet"
+                fill
+                className="object-cover rounded-xl fade-in-image"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1b2c50]/30 to-transparent rounded-xl"></div>
+              <div className="absolute bottom-4 left-4 text-white z-10">
+                <h3 className="text-lg sm:text-xl font-bold">
+                  Modern Plant Facility
+                </h3>
+              </div>
+            </div>
+
+            {/* Bottom image */}
+            <div className="relative w-full h-[200px] sm:h-[240px] rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/vehical-2.jpg"
+                alt="KD Corporation Vehicle Fleet Ceremony"
+                fill
+                className="object-cover rounded-xl fade-in-image"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1b2c50]/30 to-transparent rounded-xl"></div>
+              <div className="absolute bottom-4 left-4 text-white z-10">
+                <h3 className="text-lg sm:text-xl font-bold">
+                  Company Vehical Fleet
+                </h3>
+              </div>
             </div>
           </div>
 
-          <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-lg">
+          {/* Right side - Single vertical image */}
+          <div className="relative w-full h-[420px] sm:h-[500px] rounded-xl overflow-hidden shadow-lg">
             <Image
-              src="/images/plant 4.jpg"
-              alt="KD Corporation Team"
+              src="/images/vehical.jpg" // Replace with your vertical image path
+              alt="KD Corporation Modern Plant Facility"
               fill
               className="object-cover rounded-xl fade-in-image"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1b2c50]/20 to-transparent rounded-xl"></div>
-            <div className="absolute bottom-6 left-6 text-white z-10">
-              <h3 className="text-2xl font-bold mb-2">Company Vehical Fleet</h3>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1b2c50]/30 to-transparent rounded-xl"></div>
+            <div className="absolute bottom-6 left-6 right-6 text-white z-10">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2">
+                Company Vehical Fleet
+              </h3>
             </div>
           </div>
         </div>
