@@ -1,115 +1,65 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import BlurText from "@/components/ui/blur-text";
 
 export default function HeroSection() {
-  const [currentImage, setCurrentImage] = useState(0);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
-  // ✅ Desktop images + texts
-  const desktopImages = [
-    {
-      src: "/images/banner/1.png",
-      text: "Building Tomorrow with Quality",
-    },
-    {
-      src: "/images/banner/2.png",
-      text: "Reliability in Every Foundation",
-    },
-    { src: "/images/banner/3.png", text: "Excellence in Every Pour" },
+  const desktopTexts = [
+    "Building Tomorrow with Quality",
+    "Reliability in Every Foundation",
+    "Excellence in Every Pour",
   ];
 
-  // ✅ Mobile images + texts
-  const mobileImages = [
-    { src: "/images/banner/mobile/1.png", text: "Quality You Can Trust" },
-    {
-      src: "/images/banner/mobile/2.png",
-      text: "Strong Foundations Everywhere",
-    },
-    { src: "/images/banner/mobile/3.png", text: "Pouring Excellence Daily" },
+  const mobileTexts = [
+    "Quality You Can Trust",
+    "Strong Foundations Everywhere",
+    "Pouring Excellence Daily",
   ];
 
-  // Carousel interval
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % desktopImages.length);
+      setCurrentTextIndex((prev) => (prev + 1) % desktopTexts.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [desktopImages.length]);
+  }, [desktopTexts.length]);
 
-  // Helper to trigger animation reset
   const [animationKey, setAnimationKey] = useState(0);
-
-  // Whenever currentImage changes, trigger the animation reset
   useEffect(() => {
     setAnimationKey((prevKey) => prevKey + 1);
-  }, [currentImage]);
+  }, [currentTextIndex]);
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-20" // <-- Add top padding equal to navbar height
     >
-      {/* ===== Desktop Background Carousel ===== */}
-      <div className="absolute inset-0 z-0 hidden lg:block">
-        {desktopImages.map((item, index) => (
-          <div
-            key={item.src}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-2000 ease-in-out ${
-              index === currentImage ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <Image
-              src={item.src}
-              alt={`KD Concrete Plant Desktop ${index + 1}`}
-              fill
-              className="object-cover"
-              priority={index === 0}
-            />
-          </div>
-        ))}
-      </div>
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        src="/images/banner.mp4"
+      />
 
-      {/* ===== Mobile Background Carousel ===== */}
-      <div className="absolute inset-0 z-0 block lg:hidden">
-        {mobileImages.map((item, index) => (
-          <div
-            key={item.src}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-2000 ease-in-out ${
-              index === currentImage ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <Image
-              src={item.src}
-              alt={`KD Concrete Plant Mobile ${index + 1}`}
-              fill
-              className="object-cover"
-              priority={index === 0}
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* ===== Text Overlay ===== */}
+      {/* Text Overlay */}
       <div className="absolute top-32 left-16 z-10 max-w-md">
-        {/* Desktop text */}
         <div className="hidden lg:block">
           <BlurText
-            key={animationKey} // This will force a re-render when currentImage changes
-            text={desktopImages[currentImage].text}
+            key={animationKey}
+            text={desktopTexts[currentTextIndex]}
             animateBy="words"
             delay={120}
             direction="top"
             className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white drop-shadow-lg"
           />
         </div>
-
-        {/* Mobile text */}
         <div className="block lg:hidden">
           <BlurText
-            key={animationKey} // Same as above for mobile text
-            text={mobileImages[currentImage].text}
+            key={animationKey}
+            text={mobileTexts[currentTextIndex]}
             animateBy="words"
             delay={120}
             direction="top"

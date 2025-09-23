@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import {
   Truck,
   Factory,
@@ -13,6 +14,8 @@ import Image from "next/image";
 export default function RmcExplanationSection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const isHeadingInView = useInView(headingRef, { margin: "-100px" }); // triggers every time
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,27 +67,51 @@ export default function RmcExplanationSection() {
     },
   ];
 
+  // Heading animation variants
+  const textVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.02 } },
+  };
+
+  const charVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const splitText = (text: string) =>
+    text.split("").map((char, index) => (
+      <motion.span key={index} variants={charVariants}>
+        {char === " " ? "\u00A0" : char}
+      </motion.span>
+    ));
+
   return (
     <section ref={sectionRef} className="py-20 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div
-          className={`text-center space-y-4 mb-16 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h2 className="text-4xl font-bold text-gray-900">
-            What is <span style={{ color: "#1b2c50" }}>Ready Mix Concrete</span>
-            ?
-          </h2>
+        <div className="text-center space-y-4 mb-16">
+          <motion.h2
+            ref={headingRef}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-snug"
+            variants={textVariants}
+            initial="hidden"
+            animate={isHeadingInView ? "visible" : "hidden"} // animate every time
+          >
+            {splitText("What is ")}
+            <span className="text-[#1b2c50]">
+              {splitText("Ready Mix Concrete")}
+            </span>
+            {splitText("?")}
+          </motion.h2>
+
           <div
             className="w-20 h-1 rounded-full mx-auto"
             style={{ backgroundColor: "#1b2c50" }}
           ></div>
         </div>
 
+        {/* Content Side */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Content Side */}
           <div
             className={`space-y-6 transition-all duration-700 delay-200 ${
               isVisible
@@ -165,9 +192,8 @@ export default function RmcExplanationSection() {
                 alt="RMC Delivery Truck"
                 fill
                 className="object-cover rounded-lg"
-                priority // Optional: improves LCP
+                priority
               />
-
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
             </div>
           </div>

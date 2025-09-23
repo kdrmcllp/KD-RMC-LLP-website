@@ -1,22 +1,35 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { Truck, Clock, Shield, Zap, Factory, Users, Award } from "lucide-react";
+import {
+  Truck,
+  Clock,
+  Shield,
+  Zap,
+  Factory,
+  Users,
+  Award,
+  Beaker,
+  CheckCircle,
+} from "lucide-react";
 
 export default function ProductsSection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const isHeadingInView = useInView(headingRef, { margin: "-100px" });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // only trigger once
+          observer.disconnect();
         }
       },
-      { threshold: 0.05, rootMargin: "50px" } // more mobile-friendly
+      { threshold: 0.05, rootMargin: "50px" }
     );
 
     if (sectionRef.current) {
@@ -26,6 +39,41 @@ export default function ProductsSection() {
     return () => observer.disconnect();
   }, []);
 
+  // ✅ First Features Grid (New one)
+  const newFeatures = [
+    {
+      icon: Factory,
+      title: "Factory Manufactured",
+      description: "Precise mixing in controlled environment",
+    },
+    {
+      icon: Truck,
+      title: "Transit Delivery",
+      description: "Fresh concrete delivered to your site",
+    },
+    {
+      icon: Beaker,
+      title: "Custom Mixtures",
+      description: "Tailored to specific applications",
+    },
+    {
+      icon: CheckCircle,
+      title: "Quality Assured",
+      description: "Computer-controlled operations",
+    },
+    {
+      icon: Clock,
+      title: "Time Efficient",
+      description: "Reduced worksite confusion",
+    },
+    {
+      icon: Shield,
+      title: "Reliable Supply",
+      description: "Consistent quality and performance",
+    },
+  ];
+
+  // ✅ Second Features Grid (Existing one)
   const features = [
     {
       icon: Truck,
@@ -49,30 +97,51 @@ export default function ProductsSection() {
     },
   ];
 
+  // Heading animation variants
+  const textVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.02 } },
+  };
+
+  const charVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const splitText = (text: string) =>
+    text.split("").map((char, index) => (
+      <motion.span key={index} variants={charVariants}>
+        {char === " " ? "\u00A0" : char}
+      </motion.span>
+    ));
+
   return (
     <section id="products" ref={sectionRef} className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div
-          className={`text-center mb-16 ${
-            isVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
-          <h2 className="text-5xl font-bold text-foreground mb-6 text-balance">
-            <span className="text-[#1b2c50]">QUALITY CRUSHED</span>
+        <div className="text-center mb-16">
+          <motion.h2
+            ref={headingRef}
+            className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground mb-6 text-balance leading-snug"
+            variants={textVariants}
+            initial="hidden"
+            animate={isHeadingInView ? "visible" : "hidden"}
+          >
+            <span className="text-[#1b2c50]">
+              {splitText("OUR OPERATIONS")}
+            </span>
             <br />
-            AGGREGATES
-          </h2>
+            {splitText("CAPABILITIES")}
+          </motion.h2>
           <div className="w-32 h-1 bg-[#1b2c50] rounded-full mx-auto mb-8"></div>
         </div>
 
         {/* Image Section */}
         <div
-          className={`grid lg:grid-cols-2 gap-12 mb-20 ${
+          className={`grid lg:grid-cols-2 gap-12 mb-8 ${
             isVisible ? "animate-fade-in-up" : "opacity-0"
           }`}
         >
-          {/* Image 1 */}
           <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-lg">
             <Image
               src="/images/plant 6.jpg"
@@ -84,13 +153,9 @@ export default function ProductsSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#1b2c50]/20 to-transparent rounded-xl"></div>
             <div className="absolute bottom-6 left-6 text-white z-10">
               <h3 className="text-2xl font-bold mb-2">Modern Plant Facility</h3>
-              <p className="text-white/90">
-                State-of-the-art VSI crushing technology
-              </p>
             </div>
           </div>
 
-          {/* Image 2 */}
           <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-lg">
             <Image
               src="/images/plant 4.jpg"
@@ -100,113 +165,51 @@ export default function ProductsSection() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1b2c50]/20 to-transparent rounded-xl"></div>
             <div className="absolute bottom-6 left-6 text-white z-10">
-              <h3 className="text-2xl font-bold mb-2">Expert Team</h3>
-              <p className="text-white/90">
-                Experienced professionals ensuring quality
-              </p>
+              <h3 className="text-2xl font-bold mb-2">Company Vehical Fleet</h3>
             </div>
           </div>
         </div>
 
-        {/* Cards Section */}
-        <div
-          className={`grid lg:grid-cols-3 gap-8 mb-16 ${
-            isVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
-          <div className="lg:col-span-2 space-y-6">
-            {/* Traditional vs Modern Card */}
-            <div className="bg-white rounded-xl shadow-md border border-gray-200 p-8 border-l-4 border-l-[#1b2c50] hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Traditional vs. Modern Aggregate Production
-              </h3>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                Traditionally, most aggregate used in concrete originate from a
-                gravel pit. It is recovered and screened then material
-                conforming to size requirements is used in concrete without
-                further processing. Due to its naturally rounded shape,
-                resulting concrete has good workability properties.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                These sources of aggregate have been depleted and, increasingly,
-                aggregate is now produced from material recovered from hard rock
-                quarries. Because most material is crushed using compression
-                crushers, the shape of aggregate particles is generally angular,
-                lacking the smooth rounded edges of naturally formed aggregate
-                particles.
-              </p>
-            </div>
-
-            {/* VSI Technology Card */}
-            <div className="bg-white rounded-xl shadow-md border border-gray-200 p-8 border-l-4 border-l-[#1b2c50] hover:shadow-lg transition-shadow duration-300">
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                VSI Technology Advantages
-              </h3>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                It is generally accepted that well shaped coarse aggregate, as
-                produced by the VSI, can reduce the cement content of concrete.
-                Added to this cost advantage is an increase in concrete
-                workability and a reduction of sand content in the mix.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Reducing cement content reduces the drying shrinkage of
-                concrete, a major cause of cracking in slabs and other
-                structures. Lower cement content also reduces heat produced,
-                thus allowing larger pours without the necessity of special
-                measures to control the temperature of the concrete after
-                pouring.
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            {/* Environmental Impact Card */}
-            <div className="bg-gradient-to-br from-[#1b2c50] to-[#1b2c50]/80 text-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-center mb-4">
-                <Factory className="w-8 h-8 mr-3" />
-                <h4 className="text-xl font-bold">Environmental Impact</h4>
+        {/* ✅ New Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {newFeatures.map((feature, index) => (
+            <div
+              key={feature.title}
+              className={`bg-white p-6 rounded-lg shadow-md transition-all duration-700 border-l-4 hover:shadow-lg ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
+              style={{
+                borderColor: "#1b2c5040",
+                transitionDelay: `${600 + index * 100}ms`,
+              }}
+            >
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div
+                    className="w-12 h-12 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: "#1b2c5020" }}
+                  >
+                    <feature.icon
+                      className="w-6 h-6"
+                      style={{ color: "#1b2c50" }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm">{feature.description}</p>
+                </div>
               </div>
-              <p className="text-white/90 leading-relaxed">
-                By using VSI aggregate, savings can be anything between 10kg and
-                40kg of cement per cubic metre of concrete, reducing CO2
-                emissions significantly.
-              </p>
             </div>
-
-            {/* Superior Quality Card */}
-            <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-center mb-4">
-                <Award className="w-8 h-8 text-[#1b2c50] mr-3" />
-                <h4 className="text-xl font-bold text-foreground">
-                  Superior Quality
-                </h4>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                The crushing action of the VSI includes abrasion and impact,
-                simulating the natural gravel formation process in a much
-                shorter time.
-              </p>
-            </div>
-
-            {/* Sustainable Solution Card */}
-            <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-center mb-4">
-                <Users className="w-8 h-8 text-[#1b2c50] mr-3" />
-                <h4 className="text-xl font-bold text-foreground">
-                  Sustainable Solution
-                </h4>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                Production of manufactured sand reduces the impact on
-                traditional sources, protecting the environment from
-                over-exploitation.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+        {/* ✅ Existing Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <div
               key={feature.title}

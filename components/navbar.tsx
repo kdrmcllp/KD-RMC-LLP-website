@@ -110,9 +110,8 @@ export default function Navbar() {
   };
 
   const getNavTextColor = () => {
-    if (pathname === "/about-us" || pathname === "/bucon")
-      return "oklch(0.25 0 0)";
-    return isScrolled ? "oklch(0.25 0 0)" : "#ffffff";
+    // Always use theme color for all pages and scroll states
+    return "#1b2c50";
   };
 
   return (

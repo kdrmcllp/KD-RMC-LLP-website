@@ -9,7 +9,7 @@ import Button from "@/components/ui/Button";
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(textRef, { once: true, margin: "-100px" });
+  const isInView = useInView(textRef, { margin: "-100px" });
   const router = useRouter();
 
   const textVariants = {
@@ -40,7 +40,7 @@ export default function AboutSection() {
     <section
       id="about"
       ref={sectionRef}
-      className="py-12 sm:py-16 lg:py-20 bg-muted/30 overflow-hidden"
+      className="py-12 sm:py-16 lg:pt-4 lg:pb-20 bg-muted/30 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -79,7 +79,7 @@ export default function AboutSection() {
                 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground text-balance leading-tight"
                 variants={textVariants}
                 initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
+                animate={isInView ? "visible" : "hidden"} // this will now animate every time it comes in view
               >
                 <span>{splitText("Building Excellence with")}</span>
                 <br />

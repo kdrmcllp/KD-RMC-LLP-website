@@ -1,28 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 
 export default function PartnersSection() {
-  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const isInView = useInView(headingRef, { margin: "-100px" }); // triggers every time
 
   const partners = [
     { name: "New India Construction", logo: "/images/partners/logo1.webp" },
@@ -39,6 +24,24 @@ export default function PartnersSection() {
 
   const duplicatedPartners = [...partners, ...partners];
 
+  // Heading animation variants
+  const textVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.02 } },
+  };
+
+  const charVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const splitText = (text: string) =>
+    text.split("").map((char, index) => (
+      <motion.span key={index} variants={charVariants}>
+        {char === " " ? "\u00A0" : char}
+      </motion.span>
+    ));
+
   return (
     <section
       id="partners"
@@ -50,14 +53,16 @@ export default function PartnersSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div
-          className={`text-center mb-12 ${
-            isVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
-          <h2 className="text-3xl font-bold text-foreground mb-4 text-balance">
-            Trusted by Industry Leaders
-          </h2>
+        <div className="text-center mb-12">
+          <motion.h2
+            ref={headingRef}
+            className="text-3xl font-bold text-foreground mb-4 text-balance"
+            variants={textVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"} // animate every time in view
+          >
+            {splitText("Trusted by Industry Leaders")}
+          </motion.h2>
         </div>
 
         {/* Continuous Logo Carousel */}

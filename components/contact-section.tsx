@@ -46,7 +46,7 @@ export default function ContactSection() {
     {
       icon: Phone,
       title: "Phone Numbers",
-      details: ["+91 9920374769", "+91 9920374769"],
+      details: ["+91 9920374769"],
       action: "Call Now",
       actionType: "phone",
     },
