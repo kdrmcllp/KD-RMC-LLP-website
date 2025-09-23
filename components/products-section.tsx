@@ -13,9 +13,10 @@ export default function ProductsSection() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          observer.disconnect(); // only trigger once
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.05, rootMargin: "50px" } // more mobile-friendly
     );
 
     if (sectionRef.current) {
@@ -72,7 +73,7 @@ export default function ProductsSection() {
           }`}
         >
           {/* Image 1 */}
-          <div className="relative w-full h-[400px] rounded-xl overflow-hidden shadow-lg">
+          <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-lg">
             <Image
               src="/images/plant 6.jpg"
               alt="KD Corporation Plant Operations"
@@ -90,7 +91,7 @@ export default function ProductsSection() {
           </div>
 
           {/* Image 2 */}
-          <div className="relative w-full h-[400px] rounded-xl overflow-hidden shadow-lg">
+          <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-lg">
             <Image
               src="/images/plant 4.jpg"
               alt="KD Corporation Team"
