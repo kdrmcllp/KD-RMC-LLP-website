@@ -35,7 +35,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex justify-center md:justify-start">
               <Image
-                src="/images/new-logo.png"
+                src="/images/footer-logo2.png"
                 alt="KD Logo"
                 width={200}
                 height={60}
