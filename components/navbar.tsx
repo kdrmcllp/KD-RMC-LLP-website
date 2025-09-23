@@ -137,7 +137,7 @@ export default function Navbar() {
           >
             <div className="h-full flex items-center">
               <Image
-                src="/images/logo-1.png"
+                src="/images/new-logo.png"
                 alt="Logo"
                 width={200}
                 height={128}

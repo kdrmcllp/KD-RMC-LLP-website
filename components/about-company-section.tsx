@@ -78,12 +78,11 @@ export default function AboutCompanySection() {
                 variants={itemVariants}
                 className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8"
               >
-                KD RMC LLP has been a trusted name in the aggregate industry,
-                committed to delivering superior quality crushed aggregates that
-                meet the highest standards of construction excellence. Our
-                journey began with a vision to revolutionize the aggregate
-                manufacturing process through innovation and unwavering
-                dedication to quality.
+                KD RMC LLP has been a trusted name in the RMC industry,
+                committed to delivering superior quality Concrete that meet the
+                highest standards of construction excellence. Our journey began
+                with a vision to revolutionize the concrete manufacturing
+                process through innovation and unwavering dedication to quality.
               </motion.p>
 
               <motion.p
@@ -93,8 +92,8 @@ export default function AboutCompanySection() {
                 With over a decade of experience, we have established ourselves
                 as industry leaders, consistently delivering products that
                 exceed customer expectations. Our state-of-the-art facilities
-                and advanced VSI technology ensure that every aggregate we
-                produce meets stringent quality parameters.
+                and advanced technology ensure that every concrete we produce
+                meets stringent quality parameters.
               </motion.p>
             </div>
           </motion.div>
@@ -114,8 +113,6 @@ export default function AboutCompanySection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1b2c50]/20 to-transparent" />
             </div>
-
-            
           </motion.div>
         </motion.div>
       </div>

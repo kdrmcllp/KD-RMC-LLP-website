@@ -55,7 +55,7 @@ export default function QualityAggregatesSection() {
           <motion.div variants={itemVariants}>
             <div className="relative h-60 sm:h-72 lg:h-80 rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/plant 7.jpg"
+                src="/images/plant 7.webp"
                 alt="VSI Crusher Technology"
                 fill
                 className="object-cover fade-in-image"
@@ -68,7 +68,7 @@ export default function QualityAggregatesSection() {
           <motion.div variants={itemVariants}>
             <div className="relative h-60 sm:h-72 lg:h-80 rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/plant 6.jpg"
+                src="/images/plant 6.webp"
                 alt="Plant Operations"
                 fill
                 className="object-cover fade-in-image"

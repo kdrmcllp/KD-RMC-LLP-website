@@ -119,7 +119,7 @@ export default function RmcExplanationSection() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <div className="space-y-4 text-gray-600 leading-relaxed">
+            <div className="space-y-4 text-black leading-relaxed">
               <p className="text-lg">
                 Ready-mix concrete or{" "}
                 <strong style={{ color: "#1b2c50" }}>RMC</strong> as it is

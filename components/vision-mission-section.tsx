@@ -67,7 +67,7 @@ export default function VisionMissionSection() {
               </h2>
             </div>
             <p className="text-lg leading-relaxed text-white/90">
-              Our mission is to deliver quality Aggregates to meet customer specifications and satisfaction for the longterm
+              Our mission is to deliver quality Concrete to meet customer specifications and satisfaction for the longterm
 profitability and growth of the company.
             </p>
           </div>

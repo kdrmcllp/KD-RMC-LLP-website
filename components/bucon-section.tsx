@@ -144,13 +144,13 @@ export default function BuconSection() {
             </div>
 
             <div className="space-y-4 sm:space-y-6 text-gray-600 leading-relaxed">
-              <p className="text-base sm:text-lg gsap-animate opacity-0 transform translate-y-4">
+              <p className="text-base sm:text-lg gsap-animate opacity-0 transform translate-y-4 text-black">
                 Bucon Readymix LLP is an independent ready mixed concrete
                 company in India. The company was established in 2021 with
                 participation from Mr. Kailash Purohit.
               </p>
 
-              <p className="text-base sm:text-lg gsap-animate opacity-0 transform translate-y-4">
+              <p className="text-base sm:text-lg gsap-animate opacity-0 transform translate-y-4 text-black">
                 Both Partners have experience of over a decade in a leadership
                 role in leading ready mixed concrete and/or construction
                 organizations and brings to the table a unique blend of skills

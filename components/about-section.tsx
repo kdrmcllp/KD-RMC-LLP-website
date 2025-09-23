@@ -93,21 +93,21 @@ export default function AboutSection() {
 
             <div className="space-y-4 sm:space-y-6 text-muted-foreground leading-relaxed">
               <motion.p
-                className="text-base sm:text-lg"
+                className="text-base sm:text-lg text-black"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 1.2, ease: "easeIn", delay: 0.2 }}
               >
                 KD RMC LLP is a Proprietorship firm. Hard Work of Mr. Kailash
                 Purohit has now taken this firm to the new height. KD RMC LLP
-                was established in Maharashtra in year 2020. It started
+                was established in Maharashtra in year 2022. It started
                 operating as a construction trading entity whereby its initial
-                activities included Aggregate and construction material in the
-                Mumbai Suburban Market.
+                activities included construction material in the Mumbai Suburban
+                Market.
               </motion.p>
 
               <motion.p
-                className="text-base sm:text-lg"
+                className="text-base sm:text-lg text-black"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 1.2, ease: "easeIn", delay: 0.4 }}
@@ -121,7 +121,7 @@ export default function AboutSection() {
               </motion.p>
 
               <motion.div
-                className="text-base sm:text-lg space-y-2 ml-4"
+                className="text-base sm:text-lg space-y-2 ml-4 text-black"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 1.2, ease: "easeIn", delay: 0.6 }}
