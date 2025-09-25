@@ -98,7 +98,7 @@ export default function AboutSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 1.2, ease: "easeIn", delay: 0.2 }}
               >
-                KD RMC LLP is a Proprietorship firm. Hard Work of Mr. Kailash
+                KD RMC LLP is a Partnership firm. Hard Work of Mr. Kailash
                 Purohit has now taken this firm to the new height. KD RMC LLP
                 was established in Maharashtra in year 2022. It started
                 operating as a construction trading entity whereby its initial
