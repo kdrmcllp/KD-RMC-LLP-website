@@ -23,7 +23,7 @@ export default function Footer() {
   return (
     <footer
       className="relative bg-primary text-primary-foreground bg-no-repeat bg-contain bg-bottom"
-      style={{ backgroundImage: "url('/images/construction-bg-footer.jpg')" }} // ensure the file name has no space
+      style={{ backgroundImage: "url('/images/construction-bg-footer.jpg')" }}
     >
       {/* Overlay for readability */}
       <div className="absolute inset-0 bg-primary/90" />
@@ -98,15 +98,23 @@ export default function Footer() {
               precision.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end space-x-4 sm:space-x-6 text-xs sm:text-sm">
-              <span className="text-primary-foreground/80 hover:text-accent cursor-pointer transition-colors">
-                Privacy Policy
-              </span>
-              <span className="text-primary-foreground/80 hover:text-accent cursor-pointer transition-colors">
-                Terms of Service
-              </span>
-              <span className="text-primary-foreground/80 hover:text-accent cursor-pointer transition-colors">
-                Sitemap
-              </span>
+              {/* Social Pulse Agency Branding */}
+              <a
+                href="https://www.socialpulseagency.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-primary-foreground/80 hover:text-accent transition-colors"
+              >
+                <span>Website made by</span>
+                <Image
+                  src="/images/social pulse logo .png"
+                  alt="Social Pulse Agency"
+                  width={20}
+                  height={20}
+                  className="object-contain"
+                />
+                <span className="font-semibold">Social Pulse Agency</span>
+              </a>
             </div>
           </div>
         </div>
